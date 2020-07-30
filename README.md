@@ -1,4 +1,4 @@
-# calendar
+# Nuxt Template
 
 ## Build Setup
 
@@ -36,7 +36,7 @@ config.js、addons.js、presets.js の内容をまとめたもの。
 - eslint
 - stylelint（アルファベット順に css プロパティソート用）
 
-## formatter
+## Formatter
 - prettier
 
 ## Git Hook
