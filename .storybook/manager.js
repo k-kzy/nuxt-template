@@ -4,7 +4,7 @@ import { addons } from '@storybook/addons';
 addons.setConfig({
   theme: create({
     base: 'light',
-    brandTitle: 'CRA Kitchen Sink',
+    brandTitle: 'Atomic Design',
     gridCellSize: 20,
   }),
 });

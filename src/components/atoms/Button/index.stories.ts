@@ -1,27 +1,22 @@
-import StoryComponent from './index.vue'
+import Button from './index.vue'
 
 export default {
-  title: 'atoms/Title',
+  title: 'atoms/Button',
   parameters: {
-    notes: '見出し用',
+    notes: 'ボタン',
     info: {
       text: `
-    description or documentation about my component, supports markdown
+        description or documentation about my component, supports markdown
 
-    ~~~ts
-    <Button>Click Here</Button>
-    ~~~
-  `,
+        ~~~ts
+        <Button>Click Here</Button>
+        ~~~
+      `,
     },
   },
 }
 
 export const normal = () => ({
-  components: { StoryComponent },
-  template: `<story-component>test</story-component>`,
-})
-
-export const test = () => ({
-  components: { StoryComponent },
-  template: `<story-component>test</story-component>`,
+  components: { Button },
+  template: `<Button text="ボタン"></Button>`,
 })

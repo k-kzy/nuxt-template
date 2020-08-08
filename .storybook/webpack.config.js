@@ -1,18 +1,45 @@
 const path = require('path')
 const rootPath = path.resolve(__dirname, '../src/')
 
-module.exports = async ({ config, mode }) => {
+module.exports = async ({ config }) => {
   mode = "development";
 
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    '~': path.resolve(__dirname, '../src')
+  }
+
   config.module.rules.push({
-    test: /\.stories\.[tj]sx?$/,
-    use: [
+    test: /\.vue$/,
+    loader: 'vue-docgen-loader',
+    options: {
+      docgenOptions: {
+        alias: config.resolve.alias
+      }
+    },
+    enforce: 'post'
+  })
+
+  config.module.rules.push({
+    test: /\.ts$/,
+    resourceQuery: /components/,
+    loaders: [
+      {
+        loader: 'vue-docgen-loader',
+        options: { parser: 'typescript' },
+      }
+    ],
+    enforce: 'post'
+  })
+
+  config.module.rules.push({
+    test: /\.stories\.ts$/,
+    loaders: [
       {
         loader: require.resolve('@storybook/source-loader'),
-        options: { injectParameters: true },
+        options: { parser: 'typescript' },
       },
     ],
-    include: [path.resolve(__dirname, '../src')],
     enforce: 'pre',
   });
 
@@ -67,7 +94,7 @@ module.exports = async ({ config, mode }) => {
     ]
   });
 
-  config.resolve.extensions = ['.ts', '.js', '.vue', '.json']
+  config.resolve.extensions = ['.ts', '.js', '.vue']
   config.resolve.alias['~'] = rootPath
   config.resolve.alias['@'] = rootPath
 

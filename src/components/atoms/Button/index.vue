@@ -8,7 +8,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
-export default class Title extends Vue {
+export default class Button extends Vue {
   @Prop() public text!: string
 }
 </script>
