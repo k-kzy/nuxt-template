@@ -33,5 +33,6 @@
     "node_modules",
     ".nuxt",
     "dist"
-  ]
+  ],
+  "strictPropertyInitialization": false,
 }

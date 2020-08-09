@@ -37,5 +37,5 @@ storiesOf('atoms/Balloon', module)
         default: text('Text', '左上から 200px に配置'),
       },
     },
-    template: `<Balloon>{{ text }}</Balloon>`,
+    template: `<Balloon :style="{position: 'absolute', top: '10px', left: '200px'}">{{ text }}</Balloon>`,
   }))
