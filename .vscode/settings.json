@@ -7,5 +7,6 @@
     "source.fixAll.stylelint": true
   },
   "css.validate": false,
-  "scss.validate": false
+  "scss.validate": false,
+  "god.tsconfig": "./tsconfig.json"
 }

@@ -2,7 +2,7 @@ import { configure, addDecorator, addParameters } from '@storybook/vue'
 import { withKnobs } from '@storybook/addon-knobs/vue'
 import { withInfo } from 'storybook-addon-vue-info'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import "../src/assets/scss/app.scss";
+import '../src/assets/scss/app.scss';
 
 import Vue from 'vue'
 import Vuex from 'vuex'

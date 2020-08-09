@@ -2,62 +2,43 @@ const path = require('path')
 const rootPath = path.resolve(__dirname, '../src/')
 
 module.exports = async ({ config }) => {
-  mode = "development";
+  mode = 'development'
 
-  config.resolve.alias = {
-    ...config.resolve.alias,
-    '~': path.resolve(__dirname, '../src')
-  }
+  config.module.rules.push({
+    test: /\.md$/,
+    loaders: [
+      {
+          loader: "html-loader"
+      },
+      {
+          loader: "markdown-loader",
+      }
+    ]
+  })
 
+  // addon-storysource 設定
+  config.module.rules.push({
+    test: /\.stories\.ts?$/,
+    loaders: [require.resolve('@storybook/addon-storysource/loader')],
+    enforce: 'pre',
+  })
+
+  // addon-vue-info 設定
   config.module.rules.push({
     test: /\.vue$/,
-    loader: 'vue-docgen-loader',
-    options: {
-      docgenOptions: {
-        alias: config.resolve.alias
-      }
-    },
+    loader: 'storybook-addon-vue-info/loader',
     enforce: 'post'
   })
 
-  config.module.rules.push({
-    test: /\.ts$/,
-    resourceQuery: /components/,
-    loaders: [
-      {
-        loader: 'vue-docgen-loader',
-        options: { parser: 'typescript' },
-      }
-    ],
-    enforce: 'post'
-  })
-
-  config.module.rules.push({
-    test: /\.stories\.ts$/,
-    loaders: [
-      {
-        loader: require.resolve('@storybook/source-loader'),
-        options: { parser: 'typescript' },
-      },
-    ],
-    enforce: 'pre',
-  });
-
+  // 画像ファイル、svg ファイルを DataUrl 形式に変換
   config.module.rules.push({
     test: /\.(png|jpg|otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
     loader: 'url-loader',
-  });
+  })
 
+  // .ts 設定
   config.module.rules.push({
-    test: /\.css/,
-    use: [
-      'style-loader',
-      { loader: 'css-loader', options: { url: false } },
-    ],
-  });
-
-  config.module.rules.push({
-    test: /\.ts/,
+    test: /\.ts$/,
     use: [
       {
         loader: 'ts-loader',
@@ -67,22 +48,15 @@ module.exports = async ({ config }) => {
         },
       }
     ],
-  });
+  })
 
-  config.module.rules.push({
-    test: /\.vue$/,
-    loader: 'storybook-addon-vue-info/loader',
-    enforce: 'post'
-  });
-
+  // scss 設定
   config.module.rules.push({
     test: /\.scss$/,
     use: [
       'style-loader',
       'css-loader',
-      {
-        loader: 'sass-loader',
-      },
+      'sass-loader',
       {
         loader: 'sass-resources-loader',
         options: {
@@ -92,11 +66,10 @@ module.exports = async ({ config }) => {
         }
       }
     ]
-  });
+  })
 
-  config.resolve.extensions = ['.ts', '.js', '.vue']
   config.resolve.alias['~'] = rootPath
   config.resolve.alias['@'] = rootPath
 
-  return config;
+  return config
 }
