@@ -24,25 +24,27 @@
         </a>
       </div>
     </div>
-    <Button text="ボタン" />
-    <Balloon>削除する</Balloon>
+    <Balloon text="削除する" />
+    <Img :src="filePath" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Logo from '../components/Logo.vue'
-import Button from '../components/atoms/Button/index.vue'
 import Balloon from '../components/atoms/Balloon/Default.vue'
+import Img from '../components/atoms/Img/Default.vue'
 
 @Component({
   components: {
     Logo,
-    Button,
     Balloon,
+    Img,
   },
 })
-export default class Index extends Vue {}
+export default class Index extends Vue {
+  public filePath: string = 'https://placehold.jp/150x150.png'
+}
 </script>
 
 <style lang="scss">

@@ -1,15 +1,12 @@
 import { mount } from '@vue/test-utils'
 import Balloon from '@/src/components/atoms/Balloon/Default.vue'
 
-describe('Testing Balloon Component', (): void => {
-  test('Display text', (): void => {
-    const props = {
-      text: '削除する',
-    }
+describe('Balloon Component', (): void => {
+  test('バルーン内のテキスト挿入が正常化かテスト', (): void => {
+    const text = '削除する'
     const wrapper = mount(Balloon, {
-      propsData: props,
+      propsData: { text },
     })
-    // propsに指定したデータが正しく表示されること
-    expect(wrapper.props('text')).toBe(props.text)
+    expect(wrapper.text()).toMatch(text)
   })
 })

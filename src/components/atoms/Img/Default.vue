@@ -1,14 +1,12 @@
 <template>
-  <span class="balloon">
-    {{ text }}
-  </span>
+  <img :src="imageSrc" />
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component
-export default class Balloon extends Vue {
-  @Prop() public text!: string
+export default class Img extends Vue {
+  @Prop() public imageSrc!: string
 }
 </script>
