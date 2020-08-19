@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Img from '@/src/components/atoms/Img/Default.vue'
+import Img from './index.vue'
 
 describe('Img Component', () => {
   test('画像のパス読み込みが正常化かテスト', () => {

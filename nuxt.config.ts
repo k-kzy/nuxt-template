@@ -76,5 +76,8 @@ export default {
         ]
       },
     },
+    loaders: {
+      file: { esModule: false },
+    },
   },
 }

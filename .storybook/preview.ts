@@ -10,7 +10,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 // automatically import all files ending in *.stories.ts
-const req = require.context('../src/components', true, /.stories.ts$/)
+const req = require.context('../src/components', true, /stories.ts$/)
 function loadStories() {
   req.keys().forEach(filename => req(filename))
 }

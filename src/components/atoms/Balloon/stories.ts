@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { text } from '@storybook/addon-knobs'
-import Balloon from './Default.vue'
+import Balloon from './index.vue'
 
 storiesOf('atoms/Balloon', module)
   .add(

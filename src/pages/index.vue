@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
       <h1 class="title">
         calendar
       </h1>
@@ -26,20 +25,23 @@
     </div>
     <Balloon text="削除する" />
     <Img :src="filePath" />
+    <TrashCanIcon />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import Logo from '../components/Logo.vue'
-import Balloon from '../components/atoms/Balloon/Default.vue'
-import Img from '../components/atoms/Img/Default.vue'
+import Balloon from '../components/atoms/Balloon/index.vue'
+import Heading from '../components/atoms/Heading/index.vue'
+import Img from '../components/atoms/Img/index.vue'
+import TrashCanIcon from '../components/atoms/Icon/TrashCanIcon.vue'
 
 @Component({
   components: {
-    Logo,
     Balloon,
+    Heading,
     Img,
+    TrashCanIcon,
   },
 })
 export default class Index extends Vue {

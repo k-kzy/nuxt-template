@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/vue'
 import { text } from '@storybook/addon-knobs'
-import Img from './Default.vue'
+import Img from './index.vue'
 
 storiesOf('atoms/Img', module).add(
   '画像',

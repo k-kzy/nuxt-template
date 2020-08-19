@@ -22,14 +22,13 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ## Design System
 Atomic Design
 
-## UI Component List
-### Storybook（↓ `.storybook` 配下の設定ファイルについて）
+## Storybook（↓ `.storybook` 配下の設定ファイルについて）
 参考：https://medium.com/storybookjs/declarative-storybook-configuration-49912f77b78
-#### main.js
+### main.js
 config.js、addons.js、presets.js の内容をまとめたもの。
-#### preview.js
+### preview.js
 レンダリング制御用。
-#### manager.js
+### manager.js
 アプリUI設定用。設定しないなら不要。
 
 ## Linter
@@ -44,3 +43,6 @@ config.js、addons.js、presets.js の内容をまとめたもの。
 
 ## Testing FW
 - Jest
+
+## ベンダープレフィックス
+- .browserslistrc をルート直下に配置すれば、自動で付与される

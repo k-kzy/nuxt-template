@@ -1,27 +1,13 @@
 const path = require('path')
-const rootPath = path.resolve(__dirname, '../src/')
+// const rootPath = path.resolve(__dirname, '../src/')
 
-module.exports = async ({ config }) => {
-  mode = 'development'
-
-  config.module.rules.push({
-    test: /\.md$/,
-    loaders: [
-      {
-          loader: "html-loader"
-      },
-      {
-          loader: "markdown-loader",
-      }
-    ]
-  })
-
+module.exports = ( { config } : any ) => {
   // addon-storysource 設定
-  config.module.rules.push({
-    test: /\.stories\.ts?$/,
-    loaders: [require.resolve('@storybook/addon-storysource/loader')],
-    enforce: 'pre',
-  })
+  // config.module.rules.push({
+  //   test: /\.stories\.ts?$/,
+  //   loaders: [require.resolve('@storybook/addon-storysource/loader')],
+  //   enforce: 'pre',
+  // })
 
   // addon-vue-info 設定
   config.module.rules.push({
@@ -31,10 +17,19 @@ module.exports = async ({ config }) => {
   })
 
   // 画像ファイル、svg ファイルを DataUrl 形式に変換
-  config.module.rules.push({
-    test: /\.(png|jpg|otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
-    loader: 'url-loader',
-  })
+  // config.module.rules.push({
+  //   test: /\.(png|jpg|otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
+  //   use: {
+  //     loader: 'url-loader',
+  //   }
+  // })
+
+  // config.module.rules.push({
+  //   test: /\.(png|svg|jpg|gif)$/,
+  //   use: {
+  //     loader: 'file-loader',
+  //   }
+  // })
 
   // .ts 設定
   config.module.rules.push({
@@ -60,16 +55,14 @@ module.exports = async ({ config }) => {
       {
         loader: 'sass-resources-loader',
         options: {
-          resources: [
-            path.resolve(__dirname, '../src/assets/scss/app.scss'),
-          ],
+          resources: [path.resolve(__dirname, '../src/assets/scss/app.scss')],
         }
       }
     ]
   })
 
-  config.resolve.alias['~'] = rootPath
-  config.resolve.alias['@'] = rootPath
+  // config.resolve.alias['@'] = rootPath
+  // config.resolve.alias['~'] = rootPath
 
   return config
 }

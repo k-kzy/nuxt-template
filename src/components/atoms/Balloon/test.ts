@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Balloon from '@/src/components/atoms/Balloon/Default.vue'
+import Balloon from './index.vue'
 
 describe('Balloon Component', (): void => {
   test('バルーン内のテキスト挿入が正常化かテスト', (): void => {

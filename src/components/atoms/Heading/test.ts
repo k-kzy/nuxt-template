@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Heading from '@/src/components/atoms/Heading/Default.vue'
+import Heading from './index.vue'
 
 describe('Heading Component', (): void => {
   test('見出しレベルのpropが正常に受け取れているかテスト', (): void => {
