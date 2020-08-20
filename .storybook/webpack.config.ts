@@ -9,19 +9,6 @@ module.exports = ( { config } : any ) => {
     enforce: 'pre',
   })
 
-  // addon-vue-info 設定
-  config.module.rules.push({
-    test: /\.vue$/,
-    loader: 'vue-docgen-loader',
-    enforce: 'post'
-  })
-
-  config.module.rules.push({
-    test: /\.vue$/,
-    loader: 'storybook-addon-vue-info/loader',
-    enforce: 'post'
-  })
-
   // .ts 設定
   config.module.rules.push({
     test: /\.ts$/,
