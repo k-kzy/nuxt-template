@@ -7,6 +7,5 @@ module.exports = {
     '@storybook/preset-typescript',
     '@storybook/addon-storysource',
     '@storybook/addon-docs',
-    '@storybook/addon-controls',
   ],
 };
