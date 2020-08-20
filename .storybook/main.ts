@@ -1,13 +1,12 @@
 module.exports = {
   stories: ['../src/components/**/**/stories.ts'],
   addons: [,
-    'storybook-addon-vue-info/lib/register',
     '@storybook/addon-actions/register',
-    '@storybook/addon-knobs/register',
-    '@storybook/addon-viewport/register',
+    '@storybook/addon-knobs',
+    '@storybook/addon-viewport',
     '@storybook/preset-typescript',
-    '@storybook/addon-storysource/register',
-    // '@storybook/addon-notes/register',
-    // '@storybook/addon-links',
+    '@storybook/addon-storysource',
+    '@storybook/addon-docs',
+    '@storybook/addon-controls',
   ],
 };

@@ -37,6 +37,7 @@
     "node_modules",
     ".nuxt",
     "dist",
-    "src/**/stories.ts"
+    "src/**/stories.ts",
+    "storybook-static"
   ]
 }

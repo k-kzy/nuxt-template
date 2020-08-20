@@ -5,7 +5,7 @@ module.exports = ( { config } : any ) => {
   // addon-storysource 設定
   config.module.rules.push({
     test: /stories.ts?$/,
-    loaders: [require.resolve('@storybook/addon-storysource/loader')],
+    loaders: [require.resolve('@storybook/source-loader')],
     enforce: 'pre',
   })
 

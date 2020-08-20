@@ -1,20 +1,11 @@
 import { configure, addDecorator, addParameters } from '@storybook/vue'
-import { withKnobs } from '@storybook/addon-knobs/vue'
-import { withInfo } from 'storybook-addon-vue-info'
+import { withKnobs } from '@storybook/addon-knobs'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import Decorator from './Decorator.vue'
 import '../src/assets/scss/app.scss'
 import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-
-addDecorator(() => ({
-  components: { Decorator },
-  template: `<decorator>
-      <story slot="story"></story>
-    </decorator>`,
-}));
 
 const readFiles = [
   require.context('../src/components/atoms', true, /stories.ts$/),
@@ -32,7 +23,6 @@ configure(loadStories, module)
 
 // addon
 addDecorator(withKnobs)
-addDecorator(withInfo)
 
 // viewport 端末設定
 addParameters({
