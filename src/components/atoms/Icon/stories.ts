@@ -7,8 +7,5 @@ storiesOf('atoms/Icon', module).add(
     components: { TrashCanIcon },
     template: `<TrashCanIcon></TrashCanIcon>`,
   }),
-  {
-    info: {},
-    notes: 'ゴミ箱アイコン',
-  }
+  { info: true }
 )

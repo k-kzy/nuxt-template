@@ -2,6 +2,12 @@ import { storiesOf } from '@storybook/vue'
 import { text } from '@storybook/addon-knobs'
 import Img from './index.vue'
 
+const propsDescription = {
+  Img: {
+    fileSrc: '画像パス',
+  },
+}
+
 storiesOf('atoms/Img', module).add(
   '画像',
   () => ({
@@ -12,9 +18,7 @@ storiesOf('atoms/Img', module).add(
       },
     },
     template: `<Img :src="fileSrc"></Img>`,
+    propsDescription,
   }),
-  {
-    info: {},
-    notes: '画像',
-  }
+  { info: true }
 )
