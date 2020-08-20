@@ -11,7 +11,7 @@
     "lint:js": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "test": "jest",
     "storybook:build": "build-storybook",
-    "storybook:serve": "start-storybook -p 6060"
+    "storybook:serve": "start-storybook -s ./src/static -p 6060"
   },
   "lint-staged": {
     "*.{ts,js,vue}": [
